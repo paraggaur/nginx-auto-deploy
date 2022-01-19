@@ -1,0 +1,17 @@
+services:
+  nginx:
+    image: ubuntu/nginx:1.18-21.10_beta
+    container_name: nginx-deploy
+    hostname: nginx-deploy
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+  ansible:
+    container_name: ansible-deploy
+    hostname: ansible-deploy
+    build: 
+      context: ./ansible
+      dockerfile: Dockerfile
